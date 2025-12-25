@@ -11,4 +11,16 @@ test.describe('Login', () => {
     // Check if page is opened
     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
   });
+
+   test('Wrong password', async ({ page }) => {
+    const loginPage = new LoginPage(page);
+    
+    await loginPage.open();
+    await loginPage.login('standard_user', 'wrong_password');
+    
+    // Get an error
+    const error = await loginPage.getError();
+    expect(error).toContain('Username and password do not match');
+  });
+
 });
