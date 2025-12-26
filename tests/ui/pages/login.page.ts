@@ -19,7 +19,7 @@ export class LoginPage {
   }
 
   // Enter the page
-  async open() {
+  async navigate() {
     await this.page.goto('https://www.saucedemo.com/');
   }
 

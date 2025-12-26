@@ -5,7 +5,7 @@ test.describe('Login procedure', () => {
   test('Successful login', async ({ page }) => {
     const loginPage = new LoginPage(page);
     
-    await loginPage.open();
+    await loginPage.navigate();
     await loginPage.login('standard_user', 'secret_sauce');
     
     // Check if page is opened
@@ -15,7 +15,7 @@ test.describe('Login procedure', () => {
   test('Wrong password', async ({ page }) => {
     const loginPage = new LoginPage(page);
     
-    await loginPage.open();
+    await loginPage.navigate();
     await loginPage.login('standard_user', 'wrong_password');
     
     // Get an error message
@@ -26,7 +26,7 @@ test.describe('Login procedure', () => {
   test('Locked out user', async ({ page }) => {
     const loginPage = new LoginPage(page);
     
-    await loginPage.open();
+    await loginPage.navigate();
     await loginPage.login('locked_out_user', 'secret_sauce');
     
     const error = await loginPage.getError();
