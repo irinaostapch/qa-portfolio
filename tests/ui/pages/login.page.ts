@@ -21,6 +21,7 @@ export class LoginPage {
   // Enter the page
   async navigate() {
     await this.page.goto('https://www.saucedemo.com/');
+    await this.page.waitForLoadState('networkidle');
   }
 
   // Login

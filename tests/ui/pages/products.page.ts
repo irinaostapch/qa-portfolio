@@ -1,8 +1,18 @@
-import { Page, Locator } from '@playwright/test';
+import { Page, Locator, expect } from '@playwright/test';
 
 export class ProductsPage {
 
+    readonly products = [
+        'sauce-labs-backpack',
+        'sauce-labs-bike-light', 
+        'sauce-labs-bolt-t-shirt',
+        'sauce-labs-fleece-jacket',
+        'sauce-labs-onesie',
+        'test.allthethings()-t-shirt-(red)'
+    ];
+
 readonly page: Page;
+
 readonly shoppingCartIcon: Locator;
 readonly burgerMenuButton: Locator;
 readonly sortDropdown: Locator;
@@ -12,7 +22,7 @@ readonly productPrices: Locator;
  constructor(page: Page) {
     this.page = page;
 
-    this.shoppingCartIcon = page.locator('.cart_item');
+    this.shoppingCartIcon = page.locator('[data-test="shopping-cart-link"]');
     this.burgerMenuButton = page.locator('#react-burger-menu-btn');
     this.sortDropdown = page.locator('.product_sort_container');
     this.productNames = page.locator('.inventory_item_name');
@@ -88,11 +98,21 @@ readonly productPrices: Locator;
         return { expected, actual };
     }
 
-async openMenu(): Promise<void> {
-        await this.burgerMenuButton.click();
-    }
+    async openMenu(): Promise<void> {
+            await this.burgerMenuButton.click();
+        }
 
-async openCart(): Promise<void> {
-    await this.shoppingCartIcon.click();
+    async openCart(): Promise<void> {
+        await this.shoppingCartIcon.click();
+        await this.page.waitForURL(/cart.html/);
+        await this.page.waitForTimeout(1000);
+        }
+    
+    async addProductToCart() {
+        const randomProduct = this.products[Math.floor(Math.random() * this.products.length)];
+        const addButton = this.page.locator(`[data-test="add-to-cart-${randomProduct}"]`);
+        await addButton.click();
+        const removeButton = this.page.locator(`[data-test="remove-${randomProduct}"]`);
+        await expect(removeButton).toBeVisible();
     }
-}
+    }
