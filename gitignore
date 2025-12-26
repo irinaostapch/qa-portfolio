@@ -7,6 +7,4 @@ node_modules/
 /tests-examples/
 LoginAuth.json
 .env
-test-results
-playwright-report
-node_modules
+/test-results/
