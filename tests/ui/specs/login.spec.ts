@@ -12,7 +12,7 @@ test.describe('Login procedure', () => {
     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
   });
 
-   test('Wrong password', async ({ page }) => {
+  test('Wrong password', async ({ page }) => {
     const loginPage = new LoginPage(page);
     
     await loginPage.open();

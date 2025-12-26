@@ -1,7 +1,22 @@
-import { Page } from '@playwright/test';
+import { Page, Locator } from '@playwright/test';
 
 export class LoginPage {
-  constructor(private page: Page) {}
+
+  readonly page: Page;
+  readonly loginField: Locator;
+  readonly passwordField: Locator;
+  readonly loginButton: Locator;
+  readonly errorMessage: Locator;
+
+  constructor(page: Page) {
+    this.page = page;
+
+    this.loginField = page.locator('#user-name');
+    this.passwordField = page.locator('#password');
+    this.loginButton = page.locator('#login-button');
+    this.errorMessage = page.locator('[data-test="error"]');
+
+  }
 
   // Enter the page
   async open() {
@@ -10,12 +25,12 @@ export class LoginPage {
 
   // Login
   async login(username: string, password: string) {
-    await this.page.fill('#user-name', username);
-    await this.page.fill('#password', password);
-    await this.page.click('#login-button');
+    await this.loginField.fill(username);
+    await this.passwordField.fill(password);
+    await this.loginButton.click();
   }
 
   async getError() {
-  return await this.page.textContent('[data-test="error"]');
+  return await this.errorMessage.textContent();
   }
 }
