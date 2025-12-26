@@ -1,10 +1,9 @@
-.idea/
-node_modules/
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-/tests-examples/
+.idea
+node_modules
+test-results
+playwright-report
+blob-report
+playwright/.cache
+tests-examples
 LoginAuth.json
 .env
-/test-results/
