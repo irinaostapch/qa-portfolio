@@ -1,3 +1,0 @@
-Expected: Test.allTheThings() T-Shirt, Actual: Test.allTheThings() T-Shirt (Red)
-Expected: Sauce Labs Onesie, Actual: Sauce Labs Onesie
-Expected: Sauce Labs Fleece Jacket, Actual: Sauce Labs Fleece Jacket

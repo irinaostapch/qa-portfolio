@@ -1,3 +1,0 @@
-Expected: Sauce Labs Fleece Jacket, Actual: Sauce Labs Fleece Jacket
-Expected: Sauce Labs Backpack, Actual: Sauce Labs Backpack
-Expected: Sauce Labs Bolt T-Shirt, Actual: Sauce Labs Bolt T-Shirt
