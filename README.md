@@ -6,9 +6,7 @@ This repository demonstrates skills in UI and API test automation.
 *   **Language:** TypeScript
 *   **Test Framework:** Playwright
 *   **Pattern:** Page Object Model (POM)
-*   **API Testing:** Axios
-*   **CI/CD:** GitHub Actions
-*   **Reporting:** Playwright HTML Reporter
+*   **Reporting:** Allure
 
 ## How to Run
 1.  Clone: `git clone https://github.com/irinaostapch/qa-portfolio.git`
